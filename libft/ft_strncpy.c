@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 17:02:45 by snorcros          #+#    #+#             */
-/*   Updated: 2019/09/08 17:56:10 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/09/21 14:17:44 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		dst[i] = src[i];
 		i++;
 	}
-	while (i < len)
+	while (i != len)
 	{
 		dst[i] = '\0';
 		i++;
