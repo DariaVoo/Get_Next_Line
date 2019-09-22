@@ -6,7 +6,7 @@
 #    By: snorcros <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/04 15:42:32 by snorcros          #+#    #+#              #
-#    Updated: 2019/09/21 18:47:21 by snorcros         ###   ########.fr        #
+#    Updated: 2019/09/22 17:52:28 by snorcros         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,10 +44,11 @@ HEADER = includes
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRC) -I $(HEADER)
-	ar rc $(NAME) $(SRC0)
+$(NAME): $(SRC0)
+	ar rc $@ $^
 
+%.o: %.c $(HEADER)
+	gcc -Wall -Wextra -Werror -c $< -I $(HEADER)
 clean:
 	rm -f $(SRC0)
 
