@@ -6,7 +6,7 @@
 /*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:53:12 by snorcros          #+#    #+#             */
-/*   Updated: 2019/09/21 18:42:40 by snorcros         ###   ########.fr       */
+/*   Updated: 2019/09/22 16:19:41 by snorcros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static char	*ft_first_str(char *dst)
 int			get_next_line(const int fd, char **line)
 {
 	int			rd;
-	static char	*descriptors[10240];
+	static char	*descriptors[FD_MAX];
 	char		buf[BUFF_SIZE + 1];
 	char		*tmp;
 
-	if (fd < 0)
+	if (fd < 0 || !line || fd > FD_MAX)
 		return (-1);
 	if (!descriptors[fd])
 		descriptors[fd] = ft_strnew(1);
